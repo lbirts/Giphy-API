@@ -1,0 +1,21 @@
+button {
+    margin: 5px;
+}
+.divSpace {
+    padding: 20px;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.widImg {
+    width: 260px;
+}
+
+@media only screen and (max-width: 1000px) {
+    /* Mobile Phones */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
