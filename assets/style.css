@@ -4,18 +4,30 @@ button {
 .divSpace {
     padding: 20px;
 }
-.row::after {
+/* .divSpace::after{
+    clear: both;
+    display: block;
+} */
+/* .row::after {
     content: "";
     clear: both;
     display: block;
-}
-.widImg {
+} */
+.gify {
     width: 260px;
 }
 
-@media only screen and (max-width: 1000px) {
-    /* Mobile Phones */
-    [class*="col-"] {
+@media (max-width: 1170px) {
+    /* Stop gifDiv overlapping */
+    .divSpace {
         width: 100%;
-    }
+        margin-left: 10px;
+    } 
 }
+/* @media (max-width: 1140px) {
+    /* Stop gifDiv overlapping */
+    /* .divSpace {
+        max-width: 33.3%;
+        flex: 33.3% */
+    /* }  */
+/* } */ */

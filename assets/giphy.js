@@ -18,7 +18,7 @@ function displayGiphy() {
     $("#giphy-view").empty();
     var show = $(this).attr("data-name");
     var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      show + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10&rating=g&rating=pg";
+      show + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10&rating=g&rating=pg&rating=pg-13";
 
     $.ajax({
         url: giphyURL,
@@ -35,18 +35,15 @@ function displayGiphy() {
             var ratingP = $("<p>").text("Rating: " + gifRating);
             ratingP.addClass("float-left")
             var showImage = $("<img>");
-            showImage.addClass("float-left")
-            showImage.attr("src", results[a].images.fixed_height.url);
+            showImage.addClass("float-left gify img-fluid")
+            showImage.attr("src", results[a].images.fixed_height_still.url);
+            showImage.attr("data-still", results[a].images.fixed_height_still.url);
+            showImage.attr("data-animate", results[a].images.fixed_height.url);
+            showImage.attr("data-state", "still");
             gifDiv.append(ratingP);
-
             gifDiv.append(showImage);
-
-            showImage.addClass("widImg")
             gifDiv.addClass("col-md-4 divSpace")
-
-
             $("#giphy-view").prepend(gifDiv);
-            
         }
     });
 
@@ -93,28 +90,44 @@ function displayShowInfo() {
     });
 };
 
-function submitForm () {
-    frm.submit(); // Submit
-    $('form :input').attr('value', '');
-}
-
 //on click even to add buttons
 $("#add-show").on("click", function(event) {
     event.preventDefault();
     //grabs input from textbox
     var showInput = $("#show-input").val().trim();
+    if (!showInput) {
+        return
+    }
+    else {
+        renderButtons();
+    }
     //adding show from textbox to array
     topics.push(showInput);
     console.log(topics);
     //calling function that handles processing of array
-    renderButtons();
-    submitForm();
 });
-// //adding click event to all elements with class of show-btn
+
+function pausingGif() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    }
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+}
+
+
+
+//adding click event to all elements with class of show-btn
 
 $(document).on("click", ".show-btn", displayShowInfo);
 
 $(document).on("click", ".show-btn", displayGiphy);
+
+$(document).on("click", ".gify", pausingGif);
 
 //display initial buttons
 renderButtons();
