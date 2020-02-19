@@ -1,3 +1,72 @@
+html, body {
+    height: 100%;
+    color: rgb(58, 82, 89);
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+  text-decoration: none;
+  color: rgb(58, 82, 89);
+}
+
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+}
+
+footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+footer p {
+  margin-bottom: 0.25rem;
+}
+
+.bg-lavender {
+  background-color: rgb(207, 184, 214);
+}
+
+.text-lavender {
+  color: rgb(228, 226, 124);
+}
+
+.text-lavender-muted {
+  color: rgb(24, 6, 39);
+  font-weight: 400;
+}
+
+.text-lavender-muted:hover {
+  color: white;
+}
+
+.bg-lavender-muted {
+  background-color: rgb(232, 207, 242);
+  border-color: rgb(24, 6, 39);
+  border-width: thin;
+}
+
+.btn-hover:hover {
+  color: white;
+}
+
+.link-image {
+  opacity: 0.5;
+}
+
+.link-image:hover {
+  opacity: 0.75;
+}
+
+.active {
+  background-color: rgb(228, 226, 124);
+}
+ 
+
+
 button {
     margin: 5px;
 }
