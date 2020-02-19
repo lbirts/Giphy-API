@@ -1,6 +1,5 @@
 var topics = ["The Office", "Living Single", "The Simpsons", "RuPaul's Drag Race", "Rick and Morty", "South Park", "Martin"];
 var offSetBy = 0;
-var urlGiphy = [];
 
 // function for displaying show data
 function renderButtons() {
@@ -51,6 +50,10 @@ function displayGiphy() {
             $("#giphy-view").append(gifDiv);
         }
     });
+
+    tvShow = show;
+    console.log(tvShow);
+
 };
 
 function displayMoreBtn () {
@@ -93,6 +96,7 @@ function displayMoreGifs() {
             $("#giphy-view").append(gifDiv);
         }
     });
+
 };
 
 // re-renders HTML to display appropriate show content
@@ -179,7 +183,6 @@ $(document).on("click", ".show-btn", displayMoreBtn);
 $(document).on("click", ".moreGifs", displayMoreGifs);
 
 $(document).on("click", ".gify", pausingGif);
-
 
 //display initial buttons
 renderButtons();
