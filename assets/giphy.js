@@ -53,7 +53,7 @@ function displayGiphy() {
     });
 };
 
-function displayBtn () {
+function displayMoreBtn () {
     $(".moreGifs").remove();
     var moreBtn = $("<button>");
     moreBtn.addClass("moreGifs row mx-auto text-center btn bg-lavender-muted btn-hover");
@@ -84,6 +84,9 @@ function displayMoreGifs() {
             showImage.attr("data-still", results[a].images.fixed_height_still.url);
             showImage.attr("data-animate", results[a].images.fixed_height.url);
             showImage.attr("data-state", "still");
+            var favorites = $("<button>").text("Fav");
+            favorites.addClass("add-to-favorites btn mx-1 my-1 lavender-muted btn-hover float-right");
+            gifDiv.append(favorites);
             gifDiv.append(ratingP);
             gifDiv.append(showImage);
             gifDiv.addClass("col-md-4 divSpace")
@@ -171,7 +174,7 @@ $(document).on("click", ".show-btn", displayShowInfo);
 
 $(document).on("click", ".show-btn", displayGiphy);
 
-$(document).on("click", ".show-btn", displayBtn);
+$(document).on("click", ".show-btn", displayMoreBtn);
 
 $(document).on("click", ".moreGifs", displayMoreGifs);
 
